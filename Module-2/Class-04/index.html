@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Event listener</title>
+</head>
+<body>
+    
+    <h1>Final DOM Event Listener </h1>
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-update-text">Default Input Text</p>
+    <input type="text" id="input-field">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
+    <button onclick="handleOnclick()"> Handle event by add onclick function</button>
+    <button id="event-listner">Handle event by addEventListner</button>
+
+
+
+    <script>
+        // option 1 
+        function handleOnclick(){
+            const h3Heading = document.getElementById("handler-status");
+            h3Heading.innerText = "Handled by function attached on onclick attached"
+        }
+
+        // option 2
+        document.getElementById("event-listner").addEventListener("click", function(){   // jei function er name nei take anonymus function bole.
+            const h3Heading = document.getElementById("handler-status");
+            h3Heading.innerText = "Text update by add event listener button"
+        })
+
+        // option 2: recap
+        // input field a text likha update button a click korle, #input-update-text ai ID ala element er text change hoi input field er text oi element a bosbe.
+        document.getElementById("btn-update").addEventListener("click", function(){
+            const inputField= document.getElementById("input-field")   
+            // input field er text k pawer jonno oi input element k dhore .value dita hobe.
+            const inputText = inputField.value;
+            
+            const updateElement = document.getElementById("input-update-text");
+            updateElement.innerText = inputText;    // input field er text p tag a set korlam.
+            inputField.value = ""       //  button a click korle, input field er text clear hobe. Aikhane inputText = ""; use korle kaz kortesena. inputField.value = "" dita hobe.
+        })
+    </script>
+</body>
+</html>

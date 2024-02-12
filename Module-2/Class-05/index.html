@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="comment-container">
+
+        <h1>Pleace add your comment</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusantium nobis eligendi. Fuga porro, totam quisquam, saepe culpa eos sunt sit et nostrum consequatur, ipsum deleniti! Saepe vitae ullam corrupti et explicabo temporibus illum earum alias neque in. Iste pariatur optio delectus repellendus assumenda provident, totam omnis beatae reprehenderit esse?</p>
+        <p>Architecto dolores maiores consectetur nesciunt nisi sed aut illo, odit, nam, enim numquam doloremque! Voluptatibus sequi eum odit laudantium, nobis doloremque illo perspiciatis voluptate, asperiores, iusto a natus cum minima. Ex nostrum a ullam maxime quam, odit voluptatum hic laboriosam suscipit amet, quibusdam quas est nulla dolorum, sit laudantium quis?</p>
+        <p>Commodi delectus nulla, nihil quis error aspernatur quisquam laboriosam accusantium cum ducimus consectetur soluta, illo minus animi ut repudiandae molestiae? Eius, deserunt, numquam sit sequi, quidem tempora ad laborum adipisci porro soluta consequatur sapiente! Ipsam beatae, animi iure dolorum doloribus ad placeat aut asperiores quas neque, nam unde, labore exercitationem.</p>
+        
+    </div>
+        
+        <textarea name="" id="comment-text" cols="30" rows="5"></textarea>
+        <br>
+        <button id="post">Post</button>
+
+
+    <script>
+        // input text a user comment kore post a click korle upore div er moddhe new akta paragraph create hoi add hoia jabe. Ai kajta step by step kora hoiase.
+
+
+        // step-1: add event listener to the post button
+        document.getElementById("post").addEventListener("click", function(){
+       
+        // step-2: get the comment inside the text area.
+        const commentBox = document.getElementById("comment-text");
+        // p, h1, h2, li, span etc ai tag er moddhe theke text k paoer jonno innerText use kora hoi. but input field ba text area theke text k paoer jonno input field k dhore .value use kora hoi.
+        const newComment = commentBox.value;
+      
+        // Step -3 : set the comment inside the comment container
+        // 1. get the comment container
+        // 2. create a new element (p tag)
+        // 3. set the text of the comment as innerText of the p tag
+        // 4. add the p tag using appendChild
+        const commentContainer = document.getElementById("comment-container");
+        const commentElement = document.createElement("p");
+        commentElement.innerText = newComment;
+        commentContainer.appendChild(commentElement)
+
+        // Step -4: Clear text the input area.
+        commentBox.value = ""
+        })
+    </script>
+
+</body>
+</html>

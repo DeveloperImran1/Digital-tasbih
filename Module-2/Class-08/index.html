@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+    <ul id="item-container">
+        <li class="item" id="item1">Lorem ipsum dolor sit amet.</li>
+        <li class="item">Consequatur asperiores reprehenderit tempore quas?</li>
+        <li class="item">Mollitia rem porro accusamus et!</li>
+        <li class="item">Doloribus aliquid perferendis sapiente iure.</li>
+        <li class="item">Deleniti fuga libero totam ea?</li>
+    </ul>
+
+    <button id="btn-add-item">Add item</button>
+
+    <script>
+// Summary: jekono list a click korle oi element ta remove hobe. Abar add item button a click korle new akta item create hoia ul er moddhe li hoisabe bosbe. Abar oi li a click korlew ta remove hobe.
+
+
+        // aivabe korle sudho ager li item gulo k remove kora jabe. but add item a click kore new li k remove kore jabe na. tai porer step er code ta dekho.
+        // const items = document.getElementsByClassName("item")
+        // for(let item of items){
+        //     item.addEventListener("click", function(){
+        //         // console.log(event.target.parentNode) // jekono li er parent node ul k dhore full ul tag k return kore.
+
+        //         event.target.parentNode.removeChild(event.target)
+        //     })
+        // }
+
+
+
+           
+            document.getElementById("item-container").addEventListener("click", function(event){
+                event.target.parentNode.removeChild(event.target);
+            
+            })
+
+
+            document.getElementById("btn-add-item").addEventListener("click", function(){
+            const itemContainer= document.getElementById("item-container");
+            const newLi = document.createElement("li");
+            newLi.classList.add("item")
+            newLi.innerText = "Brand new item added";
+            
+            itemContainer.appendChild(newLi)
+        })
+
+    </script>
+</body>
+</html>

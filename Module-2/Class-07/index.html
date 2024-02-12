@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Buble</title>
+</head>
+<body id="body">
+    <h1>Exploring event buble</h1>
+    <section id="list-container">
+        <ul id="list-ul">
+            <li id="item-1">Lorem, ipsum.</li>
+            <li id="item-2">Autem, voluptates?</li>
+            <li id="item-3">Eum, repudiandae!</li>
+            <li id="item-4">Explicabo, tempore.</li>
+            <li id="item-5">Exercitationem, natus?</li>
+            <li id="item-6">Beatae, saepe!</li>
+        </ul>
+    </section>
+
+    <script>
+        // buble event a aksathe onekgulo event exicute korar somoi,, laster element ba child theke parent element er dika exicute hote hote jai.
+        document.getElementById("item-2").addEventListener("click", function(event){
+            console.log("Item-2 is Clicked");
+            event.stopPropagation()    // function er pera meter a event perameter nia, funvtion er vitore event.stopPropagation() function k call korle aksthe sob event exicute hobena. jemonta hoto buble er jonno.
+        })
+
+        document.getElementById("list-ul").addEventListener("click", function(event){
+            console.log("ul clicked");
+            event.stopPropagation()
+        })
+
+        document.getElementById("list-container").addEventListener("click", function(){
+            console.log("section container clicked")
+        })
+        document.getElementById("body").addEventListener("click", function(){
+            console.log("body of the html clicked")
+        })
+    </script>
+
+</body>
+</html>

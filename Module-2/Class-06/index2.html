@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="secret-info">My secret info</h1>
+    <input id="delete-confirm" type="text">
+    <button id="btn-delete" disabled>Delete</button>
+
+
+    <script>
+        //  default vabe disabled kore dewa ase.  input field a delete text likhla delete button inable hobe. ar delete button a click korle uporer akta p tag er element remove hoia jabe.
+
+        // Step Number 1: 
+        document.getElementById("btn-delete").addEventListener("click", function(){
+            const secret = document.getElementById("secret-info");
+            secret.style.visibility="hidden";
+            // secret.innerText="";       // Aivabe dilew text remove hobe.
+        })
+
+        // Step Number 2:
+        document.getElementById("delete-confirm").addEventListener('keyup', function(){
+            const inputText = event.target.value;
+            const deleteButton = document.getElementById("btn-delete")
+            if(inputText === "delete"){
+                deleteButton.removeAttribute("disabled")
+            }
+            else{
+                deleteButton.setAttribute("disabled", true)
+            }
+        })
+
+    </script>
+</body>
+</html>

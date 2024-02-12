@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Tasbih</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <section>
+
+        <h1 class="text-center text-5xl mt-20 font-extrabold text-teal-400">Digital Tasbih</h1>
+
+        <div class="flex flex-col lg:flex-row justify-around items-center">
+            <div class="shadow-md rounded-xl text-center mt-16 w-[400px]">
+                <h3 class="font-bold text-2xl">Subhan Allah</h3>
+                <p class="text-4xl m-5 " id="countOfSubhanallah">0</p>
+                <div class="m-6 flex gap-4 justify-center">
+                    <button class="btn btn-secondary " id="subhanallahIncrementButton">INCREMENT</button>
+                    <button class="btn btn-primary mb-6 " id="subhanallahDecrementButton">DECREMENT</button>
+
+                </div>
+            </div>
+            <div class="shadow-md rounded-xl text-center mt-16 w-[400px]">
+                <h3 class="font-bold text-2xl">ALHAMDULILLAH</h3>
+                <p class="text-4xl m-5 " id="countOfAlhamdulillah">0</p>
+                <div class="m-6 flex gap-4 justify-center">
+                    <button class="btn btn-secondary " id="alhamdulillahIncrementButton">INCREMENT</button>
+                    <button class="btn btn-primary mb-6 " id="alhamdulillahDecrementButton">DECREMENT</button>
+
+                </div>
+            </div>
+            <div class="shadow-md rounded-xl text-center mt-16 w-[400px]">
+                <h3 class="font-bold text-2xl">ALLAHUAKBAR</h3>
+                <p class="text-4xl m-5 " id="countOfAllahuakbar">0</p>
+                <div class="m-6 flex gap-4 justify-center">
+                    <button class="btn btn-secondary " id="allahuakbarIncrementButton">INCREMENT</button>
+                    <button class="btn btn-primary mb-6 " id="allahuakbarDecrementButton">DECREMENT</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-16">
+            <button class="btn btn-warning " id="resetButton">RESET ALL TASBIH</button>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

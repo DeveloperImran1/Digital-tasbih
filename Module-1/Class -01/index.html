@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, facere praesentium! Deleniti voluptates,
+            at magnam facilis molestiae similique dignissimos laboriosam.</p>
+    </header>
+    <main id="main-container">
+        <section class="names-container">
+            <h1 class="names-title" id="names-title">My Awesome DOM de baba</h1>
+            <ul>
+                <li>Jalali set</li>
+                <li>Safayat</li>
+                <li>bonobash</li>
+            </ul>
+        </section>
+        <section class="fruits-container">
+            <h1 id="fruits" class=" random-class extra-class ">Fruits Like</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section id="place-container" class="large-text">
+            <h1 id="tour">Please i like to visit</h1>
+            <ul id="place-list">
+                <li class="place">Bandorbon</li>
+                <li class="place">katabon</li>
+                <li class="place">Sudarbon</li>
+            </ul>
+        </section>
+    </main>
+
+
+    <script>
+        // console.log("Hi DOM Mama!")
+        // console.log(document)
+        // const student = {
+        //     name: "Imran",
+        //     class: 14,
+        //     study: function(time){
+        //         console.log(time, 'time a porte bosi.')
+        //     }
+        // }
+
+        // >>>>>>>>>>>>>>    getElementsByTagName     >>>>>>>>>>>>>>>>>>>
+
+        const liColection = document.getElementsByTagName("li");
+        for (const li of liColection) {
+            console.log(li['innerText'])
+        }
+
+        const h1Colection = document.getElementsByTagName('h1'); // aikhane akta array like object pabo. mane fully arrayo na abar object o na. but array and object er moto kore kisota use kora jabe.
+        for (let h1 of h1Colection) {         // h1Colection array theke for loop use kore h1 er moddhe akta akta kore element nia aslam.
+            console.log(h1.innerHTML)       // aikhane h1 akta object tar property innerHTML k dhorle text ta paoa jabe.
+        }
+
+
+        // >>>>>>>>>>>>>>>>>    getElementById     >>>>>>>>>>>>>>>>>>>>
+
+        const tour = document.getElementById("tour");   // html er kono element k id dia sellect korle akta object paoa jai. Jar innerText property dia text k show kora jai. But class dia element take dhorle akta array pawa jabe. sekhaner every element abar object.
+        console.log(tour.innerHTML)
+
+
+        // >>>>>>>>>>>>>>>>>>    getElementsByClassName      >>>>>>>>>>>>>>>>>>>
+
+        const places = document.getElementsByClassName("place")
+        console.log(places.innerText)   // aita kora jabena . karon places akta array hoia ase. array er element abar akta object hoia ase. so array er element k dhore, than property name dia object k dhore innerHTML korte hobe.
+        console.log(places[0].innerText);
+
+        for (const place of places) {
+            console.log(place.innerHTML)
+        }
+
+
+        // >>>>>>>>>>>>>>>>>    querySelectorAll    >>>>>>>>>>>>>>>>>>>>>
+
+        console.log(document.querySelectorAll("#names-title")[0].innerText)
+        console.log(document.querySelectorAll(".names-title")[0].innerHTML)
+        const someLi = document.querySelectorAll(".names-container ul li")
+        for (const list of someLi) {
+            console.log(list.innerText)
+        }
+
+
+        // >>>>>>>>>>>>>>>     querySelector    >>>>>>>>>>>>>>>>>>>>>>>>
+
+        // document.querySelectorAll() er maddhome oi id ba class er all element sellect hoi ba all nodes gulo pawa jai. But oi class namer akta element k select korar jonno document.querySelector() use korte hobe. 
+        const firstLi = document.querySelector(".names-container ul li");
+        console.log(firstLi.innerText)
+
+
+        // >>>>>>>>>>>>>>>>>      class 5    >>>>>>>>>>>>>>>>>>>>>>>
+        // aivabe js dia html element k dhore style property er bivinno css propery er value dewa ba change kora jai.
+        console.log(document.getElementById("fruits").style.backgroundColor = "yellow")
+        console.log(document.getElementById("fruits").style.color = "green")
+        console.log(document.getElementById("fruits").style.border = "2px solid red")
+
+        // html element k dhore .getAttribute('class or id') oi element er sokol class ba id paoa jabe.
+        const title = document.getElementById('fruits')
+        console.log(title.getAttribute('id'))
+        console.log(title.getAttribute('class'))
+
+        // html er kono element a class add ba remove kora jai. Oi elemlent k dhore classList.add('className'). 
+        title.classList.add('purpole-bg');
+        title.classList.remove('extra-class');
+        // replace class "purpole-bg" with class "amiNew"
+        title.classList.replace("purpole-bg", "amiNew");
+        console.log(title.classList);
+
+        // kono akta element a attribute set korte and value oi attribute er value dita pari.
+        title.setAttribute('title', 'tooltip set by Javascript');
+
+        // kono akta elements k className dia dhorle 1st a akta object paoa jai. than oi array er element k dhorle akta object paoa jai. Jar innerHTML holo html er code.
+        console.log(document.getElementsByClassName('fruits-container'))
+        console.log(document.getElementsByClassName('fruits-container')[0])
+        console.log(document.getElementsByClassName('fruits-container')[0].innerHTML)
+        // console.log(document.getElementsByClassName('fruits-container')[0].innerHTML = " <h2> ABC wow DOM is changing.")
+        console.log(document.getElementsByClassName("fruits-container")[0].innerText)    // innerHTML - html all code ta dei. ar innerText - sudho oi element er content ta dei.
+    </script>
+
+
+    <script src="./js/append.js"></script>
+    <script src="./js/dom.js"></script>
+
+
+
+</body>
+
+</html>

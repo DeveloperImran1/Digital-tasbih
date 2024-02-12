@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodes list and HTML colection defference</title>
+</head>
+<body>
+    <h1>Nodes list and HTML colection defference</h1>
+    <button id="btn-add">Add item</button>
+    <ul id="myList">
+        <li id="list1">list 1</li>
+        <li id="list2">list 2</li>
+        <li id="list3">list 3</li>
+        <li id="list4">list 4</li>
+        <li id="list5">list 5</li>
+    </ul>
+    
+
+    <script>
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+        // get node list with queryselectorAll
+        const list = document.querySelectorAll("li");
+        for( const li of list.entries()){    // every element er index and nodeList ta dekhai .entries method. Abar akivabe keys() method and values() method oo use korte pari.
+            // console.log(li.innerText)
+            console.log(li)
+        }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+        // HTML Colection 
+        const li = document.getElementsByTagName("li");
+        // console.log(li[1].innerText)
+        // array like object k amra fully akta array te convert korte pari.
+        Array.from(li).map(function(li){
+            li.style.fontSize = "2em"     // map akta array er method. Array.from(like arrayName) ta dila fully array hobe.
+        })
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   HTML colection is live and node colection is statice. Jar proman nicher example a ...
+        // li item add and total li item er length calculate:
+        // aikhane add item buton a click korle new akta item create hoia ul er moddhe li hisabe add hobe. ar console a dekhabe koita li ase.
+        const myList = document.getElementById('myList');
+        const button = document.getElementById('btn-add');
+        const listItem = document.getElementsByTagName('li');   // tagName dia dhorle html collection poa jabe.
+        const liItems = document.querySelectorAll('li') ;    // querySelector dia dhorle node List pawa jai.
+
+        button.addEventListener('click', function(){
+            const newItem = document.createElement('li');
+            newItem.textContent = "I am dynamic item";
+            myList.appendChild(newItem)
+            console.log("Total li collection with HTML colection: ", listItem.length);
+            console.log("Total li collection Node List: ", liItems.length)//button a click kore item add korle HTML colection live change hosse. kinto node list a change hossena. So nodeList is a static.
+        })
+
+    </script>
+
+</body>
+</html>
